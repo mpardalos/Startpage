@@ -1,21 +1,31 @@
-// list of handlers for various types of queries (e.g. r/* for subreddits, or direct urls)
-// in the form of [/regex to match/, {function that returns the target url]
+// List of handler objects to handle different queries
+// Handler object must contain a match property, which is a regex to match to trigger 
+// the handler and a target method that takes the query and returns the url to move to
 search_handlers = [
     // r/subreddit
-    [new RegExp("^r\/.+"), subreddit => `https://reddit.com/${subreddit}`],
+    {
+        match: /^r\/.+/,
+        target: subreddit => `https://reddit.com/${subreddit}`
+    },
     // Url with http(s)
-    [new RegExp("https?(www\.)?.+\..{2,3}"), url => url],
+    {
+        match: /https?(www\.)?.+\..{2,3}/, 
+        target: url => url
+    },
     // Url without http(s)
-    [new RegExp("(www\.)?.+\..{2,3}"), url => "http://" + url],
-    ;xa
+    {
+        match: /(www\.)?.+\..{2, 3}/,
+        target: url => "http://" + url},
     // Anything else -> Google
-    [new RegExp(".*"), query => `https://google.com/search?q=${query}`]
+    {
+        match: /.*/,
+        target: query => `https://google.com/search?q=${query}`}
 ]
 
 function handleSearch(query) {
     search_handlers.forEach(handler => {
-        if (handler[0].test(query)) {
-            window.location.href = handler[1](query);
+        if (handler.match.test(query)) {
+            window.location.href = handler.target(query);
             throw BreakException;
         }
     });
