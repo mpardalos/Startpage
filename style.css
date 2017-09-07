@@ -37,3 +37,34 @@ body {
     outline: none;
     text-shadow: 2px 2px 5px black;
 }
+
+#external-links {
+    position: relative;
+    width: 60%;
+    margin: 60px auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#external-links a {
+    border: 2px solid hsla(208, 66%, 50%, 0.7);
+    background: rgba(74, 130, 179, 0.66);
+    padding: 18px;
+    margin: 0 25px;
+    margin-bottom: 40px;
+    border-radius: 50%;
+    transition: 0.3s;
+    transition-property: background box-shadow;
+}
+
+#external-links a:hover {
+    background: rgba(74, 130, 179, 1);
+    box-shadow: 1px 1px 2px 2px hsla(0, 0%, 0%, 0.3);
+}
+
+#external-links a img {
+    height: 91px;
+}
+
