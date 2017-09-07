@@ -1,0 +1,36 @@
+body {
+    background-color: #495055;
+}
+
+#search {
+    width: 600px;
+    margin: 300px auto 10px auto;
+    font-family: "Shadows Into Light", cursive;
+}
+
+#search form {
+    width: inherit;
+}
+
+#search input {
+    border: 0;
+    border-bottom: 1px solid hsla(0, 0%, 100%, 0.7);
+    padding: 0px 40px;
+    background: transparent;
+    width: inherit;
+    font-family: inherit;
+    color: white;
+    font-size: 2em;
+    transition: 0.5s;
+    transition-property: text-shadow;
+    text-shadow: 1px 1px 2px black;
+}
+
+#search input ::selection {
+    color: red;
+}
+
+#search input:focus {
+    outline: none;
+    text-shadow: 2px 2px 5px black;
+}
