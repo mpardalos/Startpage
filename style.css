@@ -11,10 +11,6 @@ body {
     font-family: "Shadows Into Light", cursive;
 }
 
-#search form {
-    width: inherit;
-}
-
 #search input {
     border: 0;
     border-bottom: 1px solid hsla(0, 0%, 100%, 0.7);
