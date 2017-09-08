@@ -28,5 +28,10 @@ links = [
         "name": "YouTube",
         "image": "youtube.png",
         "target": "https://youtube.com"
+    },
+    { 
+        "name": "MyAnimeList",
+        "image": "anime.png",
+        "target": "https://myanimelist.net/animelist/the_true_potato"
     }
 ]
