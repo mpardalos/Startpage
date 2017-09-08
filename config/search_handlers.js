@@ -9,7 +9,7 @@ search_handlers = [
         target: url => url
     },
     {
-        match: /(www\.)?.+\..{2, 3}/,
+        match: /(www\.)?.+\..{2,3}/,
         target: url => "http://" + url
     },
     {

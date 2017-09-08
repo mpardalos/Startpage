@@ -1,9 +1,10 @@
 // Search bar queries, using the handlers specified in search_handlers.js
 function handleSearch(query) {
-    search_handlers.forEach(handler => {
+    // Use some instead of forEach because it breaks when true is returned
+    search_handlers.some(handler => {
         if (handler.match.test(query)) {
             window.location.href = handler.target(query);
-            throw BreakException;
+            return true;
         }
     });
 }
