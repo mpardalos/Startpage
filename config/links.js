@@ -1,3 +1,4 @@
+// See instructions in README.md
 links = [
     {
         "name": "Reddit",

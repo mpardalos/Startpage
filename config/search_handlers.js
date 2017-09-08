@@ -1,6 +1,4 @@
-// List of handler objects to handle different queries
-// Handler object must contain a match property, which is a regex to match to trigger 
-// the handler and a target method that takes the query and returns the url to move to
+// See instructions in README.md
 search_handlers = [
     {
         match: /^r\/.+/,
