@@ -1,27 +1,4 @@
-// List of handler objects to handle different queries
-// Handler object must contain a match property, which is a regex to match to trigger 
-// the handler and a target method that takes the query and returns the url to move to
-search_handlers = [
-    // r/subreddit
-    {
-        match: /^r\/.+/,
-        target: subreddit => `https://reddit.com/${subreddit}`
-    },
-    // Url with http(s)
-    {
-        match: /https?(www\.)?.+\..{2,3}/, 
-        target: url => url
-    },
-    // Url without http(s)
-    {
-        match: /(www\.)?.+\..{2, 3}/,
-        target: url => "http://" + url},
-    // Anything else -> Google
-    {
-        match: /.*/,
-        target: query => `https://google.com/search?q=${query}`}
-]
-
+// Search bar queries, using the handlers specified in search_handlers.js
 function handleSearch(query) {
     search_handlers.forEach(handler => {
         if (handler.match.test(query)) {
@@ -30,3 +7,16 @@ function handleSearch(query) {
         }
     });
 }
+
+// Render the links as specified in links.js
+window.onload = () => {
+    let link_template_source = document.getElementById('image-link-template').innerHTML;   
+    let link_template = Handlebars.compile(link_template_source);
+    let link_parent = document.getElementById('external-links');           
+
+    // links declated in links.js, which is loaded from index.html
+    links.forEach(link => {
+        let link_html = link_template(link);
+        link_parent.insertAdjacentHTML('beforeend', link_html);
+    });
+};

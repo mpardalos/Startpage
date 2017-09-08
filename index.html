@@ -3,7 +3,12 @@
         <title>Home</title>
         <link rel="stylesheet" href="style.css">
         <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light|Special+Elite" rel="stylesheet">
-        <script src="js/index.js"></script>
+
+        <script src="js/handlebars.js" async></script>
+        <script src="links.js" async></script>
+        <script src="search_handlers.js" async></script>
+
+        <script src="js/index.js" defer></script>
     </head>
     <body>
         <div id="root">
@@ -16,24 +21,11 @@
             </div>
 
             <div id="external-links">
-                <a href="https://reddit.com">
-                    <img src="images/reddit.png" alt="Reddit">
-                </a>
-                <a href="https://facebook.com">
-                    <img src="images/facebook.png" alt="Facebook">
-                </a>
-                <a href="https://mail.google.com">
-                    <img src="images/gmail.png" alt="Google Inbox">
-                </a>
-                <a href="https://drive.google.com">
-                    <img src="images/google-drive.png" alt="Google Drive">
-                </a>
-                <a href="https://github.com">
-                    <img src="images/github.png" alt="Github">
-                </a>
-                <a href="https://youtube.com">
-                    <img src="images/youtube.png" alt="YouTube">
-                </a>
+                <script id="image-link-template" type="x-handlebars-template">
+                    <a href="{{target}}">
+                        <img src="images/{{image}}" alt="{{name}}">
+                    </a>
+                </script>
             </div>
         </div>
     </body>
