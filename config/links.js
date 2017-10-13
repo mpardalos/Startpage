@@ -30,6 +30,11 @@ links = [
         "image": "youtube.png",
         "target": "https://youtube.com"
     },
+    {
+        "name": "Office 365",
+        "image": "office.png",
+        "target": "https://office.com"
+    },
     { 
         "name": "MyAnimeList",
         "image": "anime.png",
